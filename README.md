@@ -25,9 +25,6 @@ This is **not** a showcase repository. It is a learning workspace. Branches are 
 Each mini-project is organized in its own branch to maintain isolation and clear progression:
 
 * [`calculator`](https://github.com/lucaspaiva-lp/python-lab/tree/calculator) — arithmetic operations, input handling, and basic validation
-* `mini-jogo` — small games for practicing loops, conditionals, and functions
-* `manager-email` — logic exercises related to managing data and I/O
-* `game-de-palavras` — string manipulation and problem-solving exercises
 
 ---
 
