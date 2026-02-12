@@ -1,81 +1,35 @@
-# Python Lab
+# Calculator — Python Lab Mini-Project
 
-A personal learning repository focused on **practical Python development** through small, incremental projects.
-
-This repository is designed as a sandbox to practice core Python concepts, reinforce programming logic, and build confidence by solving problems through hands-on experimentation.
-
----
+A small Python project focused on practicing **core arithmetic operations, input handling, and basic validation**. This branch is part of the `python-lab` repository and serves as a learning sandbox for experimenting with Python logic and problem-solving.
 
 ## Purpose
 
-The main goals of this repository are to:
+The goal of this mini-project is to:
 
-* Develop solid **programming logic** using Python
-* Practice problem-solving through repetition and variation
-* Strengthen understanding of Python fundamentals in isolation
-* Build habits of writing, running, debugging, and refining code
-* Progress from simple scripts to slightly more structured programs
+* Implement fundamental arithmetic operations: addition, subtraction, multiplication, division
+* Practice input handling for integers and floats
+* Explore basic error handling and feedback for invalid inputs
+* Build habits of writing, running, and refining code in Python
 
-This is **not** a showcase repository.
+This project is **not** a production-ready calculator. It exists purely for learning and experimentation.
 
-It is a learning workspace.
+## Highlights
 
----
+* Core arithmetic functions implemented
+* Input validation with basic error messages
+* Unit tests included for core operations
 
 ## Scope
 
-The projects in this repository intentionally focus on:
+* Integer and float operations
+* Simple user input handling
+* Error messages for invalid entries
 
-* Core Python syntax
-* Control flow (conditionals, loops)
-* Functions and decomposition
-* Data structures (lists, dictionaries, sets)
-* Basic state management
-* Error handling and edge cases
 
-At early stages, projects avoid:
+## Usage
 
-* Frameworks
-* Databases
-* Complex architectures
-* Overengineering
+The user should ensure they are on the `calculator` branch, run the calculator script, and follow the on-screen prompts to enter numbers and select operations.
 
-Structure and organization are introduced gradually as learning progresses.
+## Notes
 
----
-
-## Project Characteristics
-
-* Small scope
-* Single responsibility
-* Executable scripts
-* Emphasis on clarity over cleverness
-* Refactoring happens after correctness
-
-Some projects may appear simple or repetitive by design — repetition is intentional.
-
----
-
-## Evolution
-
-As proficiency increases, later exercises may introduce:
-
-* Basic modularization
-* Simple folder-based separation of concerns
-* Light architectural patterns (when justified)
-
-The repository evolves together with learning progress.
-
----
-
-## Disclaimer
-
-Code quality, style, and solutions may vary across projects, reflecting different stages of learning and experimentation.
-
----
-
-## License
-
-This repository is for educational purposes.
-
-Use, adapt, or reference freely.
+This branch is designed for **hands-on learning**, repetition, and testing Python fundamentals in isolation. Each mini-project in the repository is isolated in its own branch to allow focused experimentation without affecting other learning tracks.
