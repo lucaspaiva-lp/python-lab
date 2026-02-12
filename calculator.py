@@ -14,14 +14,14 @@ while True:
             value2 = int(y)
             print("1ª) Valor:", value1)   
             print("2ª) Valor:", value2)
-            print("O resultado da soma é: ", value1 + value2)
+            print("O resultado da soma é:", value1 + value2)
         except ValueError:
             try:
-                value3 = float(x)
-                value4 = float(y)
-                print("1ª) Valor:", value3)   
-                print("2ª) Valor:", value4)
-                print("O resultado da soma é:", value3 + value4)
+                value1 = float(x)
+                value2 = float(y)
+                print("1ª) Valor:", value1)   
+                print("2ª) Valor:", value2)
+                print("O resultado da soma é:", value1 + value2)
             except ValueError:
                 print("Valor inválido!")
                 
@@ -34,12 +34,12 @@ while True:
             print("O resultado da subtração é:", value1 - value2)
         except ValueError:
             try:
-                value3 = float(x)
-                value4 = float(y)
+                value1 = float(x)
+                value2 = float(y)
                 print("Valores armazenados:")
-                print("1ª) Valor:", value3)   
-                print("2ª) Valor:", value4)
-                print("O resultado da subtração é:", value3 - value4)
+                print("1ª) Valor:", value1)   
+                print("2ª) Valor:", value2)
+                print("O resultado da subtração é:", value1 - value2)
             except ValueError:
                 print("Valor inválido!")
         
@@ -53,12 +53,12 @@ while True:
             print("O resultado da multiplicação é:", value1 * value2)
         except ValueError:
             try:
-                value3 = float(x)
-                value4 = float(y)
+                value1 = float(x)
+                value2 = float(y)
                 print("Valores armazenados:")
-                print("1ª) Valor:", value3)   
-                print("2ª) Valor:", value4)
-                print("O resultado da multiplicação é:", value3 * value4)
+                print("1ª) Valor:", value1)   
+                print("2ª) Valor:", value2)
+                print("O resultado da multiplicação é:", value1 * value2)
             except ValueError:
                 print("Valor inválido!")
 
@@ -72,13 +72,13 @@ while True:
             print("O resultado da divisão é:", value1 / value2)
         except ValueError:
             try:
-                value3 = float(x)
-                value4 = float(y)
+                value1 = float(x)
+                value2 = float(y)
                 print("\n")
                 print("Valores armazenados:")
-                print("1ª) Valor:", value3)   
-                print("2ª) Valor:", value4)
-                print("O resultado da divisão é:", value3 / value4)
+                print("1ª) Valor:", value1)   
+                print("2ª) Valor:", value2)
+                print("O resultado da divisão é:", value1 / value2)
             except ValueError:
                 print("Valor inválido!")
 
