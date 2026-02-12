@@ -1,92 +1,94 @@
 import os
 
-os.system("clear")
-while True:
-    print("> Calculadora de multiplas funções <\n")
-    def tratamento_do_input(text):
-        while True:
-            try:
-                return float(input(text))
-            except ValueError:
-                print("Valor inválido da function!")
-
-    x = tratamento_do_input("Insira o primeiro valor:")
-    y = tratamento_do_input("Insira o segundo valor:")
-
-    # Manter a junção acima das opções de calculos, para manter a integridade definida.
-    def soma():
+# Manter a junção acima das opções de calculos, para manter a integridade definida.
+def tratamento_do_input(text):
+    while True:
         try:
-            value1 = int(x)
-            value2 = int(y)
+            return float(input(text))
+        except ValueError:
+            print("Valor inválido da function!")
+
+def soma():
+    try:
+        value1 = int(x)
+        value2 = int(y)
+        print("1ª) Valor:", value1)   
+        print("2ª) Valor:", value2)
+        print("O resultado da soma é:", value1 + value2)
+    except ValueError:
+        try:
+            value1 = float(x)
+            value2 = float(y)
             print("1ª) Valor:", value1)   
             print("2ª) Valor:", value2)
             print("O resultado da soma é:", value1 + value2)
         except ValueError:
-            try:
-                value1 = float(x)
-                value2 = float(y)
-                print("1ª) Valor:", value1)   
-                print("2ª) Valor:", value2)
-                print("O resultado da soma é:", value1 + value2)
-            except ValueError:
-                print("Valor inválido!")
-                
-    def diminuir():
+            print("Valor inválido!")
+            
+def diminuir():
+    try:
+        value1 = int(x)
+        value2 = int(y)
+        print("1ª) Valor:", value1)   
+        print("2ª) Valor:", value2)
+        print("O resultado da subtração é:", value1 - value2)
+    except ValueError:
         try:
-            value1 = int(x)
-            value2 = int(y)
+            value1 = float(x)
+            value2 = float(y)
+            print("Valores armazenados:")
             print("1ª) Valor:", value1)   
             print("2ª) Valor:", value2)
             print("O resultado da subtração é:", value1 - value2)
         except ValueError:
-            try:
-                value1 = float(x)
-                value2 = float(y)
-                print("Valores armazenados:")
-                print("1ª) Valor:", value1)   
-                print("2ª) Valor:", value2)
-                print("O resultado da subtração é:", value1 - value2)
-            except ValueError:
-                print("Valor inválido!")
-        
-    def multiplicar():
+            print("Valor inválido!")
+    
+def multiplicar():
+    try:
+        value1 = int(x)
+        value2 = int(y)
+        print("Valores armazenados:")
+        print("1ª) Valor:", value1)   
+        print("2ª) Valor:", value2)
+        print("O resultado da multiplicação é:", value1 * value2)
+    except ValueError:
         try:
-            value1 = int(x)
-            value2 = int(y)
+            value1 = float(x)
+            value2 = float(y)
             print("Valores armazenados:")
             print("1ª) Valor:", value1)   
             print("2ª) Valor:", value2)
             print("O resultado da multiplicação é:", value1 * value2)
         except ValueError:
-            try:
-                value1 = float(x)
-                value2 = float(y)
-                print("Valores armazenados:")
-                print("1ª) Valor:", value1)   
-                print("2ª) Valor:", value2)
-                print("O resultado da multiplicação é:", value1 * value2)
-            except ValueError:
-                print("Valor inválido!")
+            print("Valor inválido!")
 
-    def dividir():
+def dividir():
+    try:
+        value1 = int(x)
+        value2 = int(y)
+        print("Valores armazenados:")
+        print("1ª) Valor:", value1)   
+        print("2ª) Valor:", value2)
+        print("O resultado da divisão é:", value1 / value2)
+    except ValueError:
         try:
-            value1 = int(x)
-            value2 = int(y)
+            value1 = float(x)
+            value2 = float(y)
+            print("\n")
             print("Valores armazenados:")
             print("1ª) Valor:", value1)   
             print("2ª) Valor:", value2)
             print("O resultado da divisão é:", value1 / value2)
         except ValueError:
-            try:
-                value1 = float(x)
-                value2 = float(y)
-                print("\n")
-                print("Valores armazenados:")
-                print("1ª) Valor:", value1)   
-                print("2ª) Valor:", value2)
-                print("O resultado da divisão é:", value1 / value2)
-            except ValueError:
-                print("Valor inválido!")
+            print("Valor inválido!")
+
+os.system("clear")
+while True:
+    print("> Calculadora de multiplas funções <\n")
+
+    x = tratamento_do_input("Insira o primeiro valor:")
+    y = tratamento_do_input("Insira o segundo valor:")
+
 
     while True:
         os.system("clear")
