@@ -2,7 +2,7 @@ import os
 
 os.system("clear")
 while True:
-    print("> Calculadora de multiplas funções <\n")
+    print("» Calculadora de multiplas funções «\n")
     ## FIXME: Falta implementa a falha que ocorre caso coloque STR na inserção inicial. -> Falha só aparece lá na frente
     x = input("Insira o primeiro valor: ")
     y = input("Insira o segundo valor: ")
@@ -85,6 +85,17 @@ while True:
                 print("O resultado da divisão é: ", value3 / value4)
             except ValueError:
                 print("Valor inválido!")
+    def exit():
+        os.system("clear")
+        print("Você deseja calcula novamente outro valor?")
+        print("1. Sim")
+        print("2. Não")
+        e_choice = input("Usuário: ")
+        if e_choice == "1":
+            os.system("clear")
+            continue
+        elif e_choice == "2":
+            break
 
     while True:
         os.system("clear")
@@ -117,14 +128,5 @@ while True:
             break
         else:
             print("Opção inválida, escolha entre 1 a 4.")
-    os.system("clear")
-    print("Você deseja calcula novamente outro valor?")
-    print("1. Sim")
-    print("2. Não")
-    e_choice = input("Usuário: ")
-    if e_choice == "1":
-        os.system("clear")
-        continue
-    elif e_choice == "2":
-        break
+    exit()
     break
