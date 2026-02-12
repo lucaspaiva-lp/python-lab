@@ -103,7 +103,6 @@ while True:
         if choice == "1":
             os.system("clear")
             soma()
-            # TODO: Implementa todos os blocos de retorno ao calculo em uma função para limpar a aplicação.
             break
         elif choice == "2":
             os.system("clear")
