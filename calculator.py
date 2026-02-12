@@ -98,7 +98,7 @@ while True:
         print("2. Subtrair")
         print("3. Multiplicar")
         print("4. Dividir")
-        # TODO: Implementa um retorno/reset caso usuário deseje retorna ou trocar os valores.
+        
         choice = input("Usuário: ")
         
         if choice == "1":
