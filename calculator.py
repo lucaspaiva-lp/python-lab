@@ -3,9 +3,15 @@ import os
 os.system("clear")
 while True:
     print("> Calculadora de multiplas funções <\n")
-    ## FIXME: Falta implementa a falha que ocorre caso coloque STR na inserção inicial. -> Falha só aparece lá na frente
-    x = input("Insira o primeiro valor:")
-    y = input("Insira o segundo valor:")
+    def tratamento_do_input(text):
+        while True:
+            try:
+                return float(input(text))
+            except ValueError:
+                print("Valor inválido da function!")
+
+    x = tratamento_do_input("Insira o primeiro valor:")
+    y = tratamento_do_input("Insira o segundo valor:")
 
     # Manter a junção acima das opções de calculos, para manter a integridade definida.
     def soma():
