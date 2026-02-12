@@ -117,7 +117,6 @@ while True:
             break
         else:
             print("Opção inválida, escolha entre 1 a 4.")
-    os.system("clear")
     print("Você deseja calcula novamente outro valor?")
     print("1. Sim")
     print("2. Não")
