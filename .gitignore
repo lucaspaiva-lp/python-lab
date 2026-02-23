@@ -1,1 +1,6 @@
+*others/
 notes.md
+.venv
+calculator.spec
+dist
+build
