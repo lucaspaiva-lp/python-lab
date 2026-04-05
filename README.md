@@ -1,101 +1,64 @@
+# MapReduce Word Count - Big Data
 
-# Python Lab
-
-A personal learning repository focused on **practical Python development** through small, incremental projects.
-
-This repository serves as a sandbox to practice core Python concepts, reinforce programming logic, and build confidence by solving problems hands-on. Each mini-project is isolated in its own branch to allow focused experimentation and versioning without cluttering the workspace.
+This project implements the **MapReduce** concept for processing and counting words in large volumes of text using the `mrjob` library. Developed for the Big Data course (ADS - 3rd Semester).
 
 ---
 
-## Purpose
+## Project Structure
 
-The main goals of this repository are to:
-
-* Develop solid **programming logic** using Python
-* Practice problem-solving through repetition and variation
-* Strengthen understanding of Python fundamentals in isolation
-* Build habits of writing, running, debugging, and refining code
-* Progress from simple scripts to slightly more structured programs
-
-This is **not** a showcase repository. It is a learning workspace. Branches are used to separate mini-projects for clarity and experimentation.
-
----
-## Branches
-
-Each mini-project is organized in its own branch to maintain isolation and clear progression:
-
-* [`calculator`](https://github.com/lucaspaiva-lp/python-lab/tree/calculator) — arithmetic operations, input handling, and basic validation
+* **`map-reduce.py`** : Main script containing the class that inherits from `MRJob`. It defines the **Map** (tokenization) and **Reduce** (summing occurrences) steps.
+* **`raw_data.txt`** : The input file containing the raw text to be processed.
+* **`qtd.txt`** : The output file generated after processing (displaying the results).
 
 ---
 
-## Scope
+## Environment Setup (Virtualenv)
 
-Projects in this repository intentionally focus on:
+To avoid conflicts with the system Python on Arch Linux and permission issues with SSHFS mounts, virtual environments are stored locally in the Home directory.
 
-* Core Python syntax
-* Control flow (conditionals, loops)
-* Functions and decomposition
-* Data structures (lists, dictionaries, sets)
-* Basic state management
-* Error handling and edge cases
+### Creating the environment
 
-At early stages, projects avoid:
+**Bash**
 
-* Frameworks
-* Databases
-* Complex architectures
-* Overengineering
+```
+# Creating a centralized directory for venvs
+mkdir -p ~/.venvs
 
-Structure and organization are introduced gradually as learning progresses. Branches allow isolated development of different concepts and mini-projects.
+# Creating the specific environment for Big Data
+python -m venv ~/.venvs/bigdata-estacio
+```
 
----
+### Activating the environment
 
-## Project Characteristics
+**Bash**
 
-* Small scope
-* Single responsibility
-* Executable scripts
-* Emphasis on clarity over cleverness
-* Refactoring happens after correctness
-* Isolated experimentation per branch
-* Versioning via Git tags for key milestones
+```
+source ~/.venvs/bigdata-estacio/bin/activate
+```
 
-Some projects may appear simple or repetitive by design — repetition is intentional to reinforce learning and logic development.
+### Installing dependencies
+
+**Bash**
+
+```
+pip install -r requirements.txt
+```
 
 ---
 
-## Evolution
+## How to Run
 
-As proficiency increases, later exercises may introduce:
+The command below reads the text file, processes the mapping and reduction steps, and redirects the output to a final file:
 
-* Basic modularization
-* Simple folder-based separation of concerns
-* Light architectural patterns (when justified)
+**Bash**
 
-Tags can be used within branches to mark stable versions or milestones.
-
----
-
-## Guidelines for Workflow
-
-* Keep each mini-project isolated in its branch
-* Commit frequently to capture progress
-* Use descriptive commit messages, e.g., `chore(calculator): add input validation`
-* Use tags for marking important versions, e.g., `calculator-v0.1`
-* Avoid merging unrelated mini-projects into the same branch
+```
+python map-reduce.py input_data.txt > display.txt
+```
 
 ---
 
-## Disclaimer
+## Implementation Notes
 
-Code quality, style, and solutions may vary across projects, reflecting different stages of learning and experimentation.
-
-This repository is a personal learning tool, not a professional product.
-
----
-
-## License
-
-This repository is for educational purposes.
-
-Use, adapt, or reference freely.
+* **MRJob** : Used to simplify writing MapReduce code within a single Python class, allowing for local execution or deployment on clusters (Hadoop/AWS).
+* **Performance** : Processing is done via streaming, which allows handling files larger than the available RAM.

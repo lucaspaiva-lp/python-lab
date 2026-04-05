@@ -1,0 +1,10 @@
+"texto"	2
+"tem"	1
+"repetidas"	1
+"python"	1
+"palavras"	3
+"palavra"	1
+"mrob"	1
+"mapreduce"	2
+"hadoop"	4
+"este"	1
