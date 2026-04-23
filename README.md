@@ -24,8 +24,9 @@ This is **not** a showcase repository. It is a learning workspace. Branches are 
 
 Each mini-project is organized in its own branch to maintain isolation and clear progression:
 
-* [`calculator`](https://github.com/lucaspaiva-lp/python-lab/tree/calculator) — arithmetic operations, input handling, and basic validation
-* [`test-v6`](https://github.com/lucaspaiva-lp/python-lab/tree/test-v6)
+* [`calculator`](https://github.com/lucaspaiva-lp/python-lab/tree/calculator)
+* [`mapreduce`](https://github.com/lucaspaiva-lp/python-lab/tree/mapreduce)
+* [`file-sort`](https://github.com/lucaspaiva-lp/python-lab/tree/file-sort)
 
 ---
 
