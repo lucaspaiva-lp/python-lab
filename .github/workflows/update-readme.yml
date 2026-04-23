@@ -1,26 +1,71 @@
 name: Auto Update README
+
 on:
   create:
     branches:
-      - '*' 
+      - '*'
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Update README with branch name
+        env:
+          BRANCH: ${{ github.ref_name }}
+          REPO: https://github.com/lucaspaiva-lp/python-lab
         run: |
-          # Procura a linha com '---' e insere o link antes dela
-          sed -i '/---/i * [`${{ github.ref_name }}`](https://github.com/lucaspaiva-lp/python-lab/tree/${{ github.ref_name }})' README.md
+          python3 - <<'EOF'
+          import os, re
 
+          branch = os.environ["BRANCH"]
+          repo   = os.environ["REPO"]
+          new_entry = f"* [`{branch}`]({repo}/tree/{branch})"
+
+          with open("README.md", "r") as f:
+              content = f.read()
+
+          # Sai sem alterar se a branch já estiver listada
+          if branch in content:
+              print("Branch já listada. Nada a fazer.")
+              exit(0)
+
+          # Localiza a seção ## Branches e insere antes do '---' que a encerra
+          # O padrão captura tudo entre ## Branches e o próximo ---
+          def insert_branch(m):
+              section = m.group(0)           # trecho inteiro capturado
+              # Insere a nova entrada antes do '---' final da seção
+              return section.rstrip() \
+                     .rstrip("---").rstrip() \
+                     + f"\n* [`{branch}`]({repo}/tree/{branch})\n\n---"
+
+          updated = re.sub(
+              r'(## Branches\n.*?)^---',
+              insert_branch,
+              content,
+              count=1,
+              flags=re.DOTALL | re.MULTILINE
+          )
+
+          if updated == content:
+              print("Padrão não encontrado no README. Verifique a estrutura.")
+              exit(1)
+
+          with open("README.md", "w") as f:
+              f.write(updated)
+
+          print(f"README atualizado com a branch: {branch}")
+          EOF
+
+      - name: Commit and push
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           if [[ -n $(git status --porcelain README.md) ]]; then
             git add README.md
             git commit -m "docs: auto-update README com a branch ${{ github.ref_name }}"
