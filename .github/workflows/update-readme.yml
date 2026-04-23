@@ -12,8 +12,10 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout main
         uses: actions/checkout@v4
+        with:
+          ref: main  # <-- sempre edita o README do main, não da branch nova
 
       - name: Update README with branch name
         env:
@@ -25,27 +27,32 @@ jobs:
 
           branch = os.environ["BRANCH"]
           repo   = os.environ["REPO"]
-          new_entry = f"* [`{branch}`]({repo}/tree/{branch})"
 
           with open("README.md", "r") as f:
               content = f.read()
 
-          # Sai sem alterar se a branch já estiver listada
-          if branch in content:
-              print("Branch já listada. Nada a fazer.")
+          # Extrai apenas o bloco da seção Branches para checar duplicata
+          branches_block = re.search(
+              r'## Branches\n.*?^---',
+              content,
+              flags=re.DOTALL | re.MULTILINE
+          )
+
+          if branches_block and f"/{branch})" in branches_block.group(0):
+              print(f"Branch '{branch}' já listada na seção Branches. Nada a fazer.")
               exit(0)
 
-          # Localiza a seção ## Branches e insere antes do '---' que a encerra
-          # O padrão captura tudo entre ## Branches e o próximo ---
+          # Insere a nova entrada antes do '---' que encerra a seção Branches
+          new_entry = f"* [`{branch}`]({repo}/tree/{branch})"
+
           def insert_branch(m):
-              section = m.group(0)           # trecho inteiro capturado
-              # Insere a nova entrada antes do '---' final da seção
-              return section.rstrip() \
-                     .rstrip("---").rstrip() \
-                     + f"\n* [`{branch}`]({repo}/tree/{branch})\n\n---"
+              section = m.group(0)
+              # Remove o '---' do final, adiciona a entrada, recoloca o '---'
+              without_sep = re.sub(r'\n---$', '', section)
+              return without_sep.rstrip() + f"\n{new_entry}\n\n---"
 
           updated = re.sub(
-              r'(## Branches\n.*?)^---',
+              r'## Branches\n.*?^---',
               insert_branch,
               content,
               count=1,
@@ -69,7 +76,7 @@ jobs:
           if [[ -n $(git status --porcelain README.md) ]]; then
             git add README.md
             git commit -m "docs: auto-update README com a branch ${{ github.ref_name }}"
-            git push
+            git push origin main  # <-- push explícito para o main
           else
             echo "Nenhuma alteração detectada."
           fi
