@@ -12,24 +12,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update README with branch name
         run: |
-          # Corrige o sed para apontar para a âncora correta
           sed -i '//a * [`${{ github.ref_name }}`](https://github.com/lucaspaiva-lp/python-lab/tree/${{ github.ref_name }})' README.md
 
-          # Configura Git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Commit e Push
-          git add README.md
-          # Verifica se houve alteração antes de commitar
-          if ! git diff --cached --quiet; then
-            git commit -m "docs: auto-update README com a branch ${{ github.ref_name }}"
+          if [[ -n $(git status --porcelain README.md) ]]; then
+            git add README.md
+            git commit -m "docs: auto-update README with branch ${{ github.ref_name }}"
             git push
           else
-            echo "Nenhuma alteração necessária."
+            echo "No changes detected."
           fi
