@@ -15,7 +15,7 @@ jobs:
 
       - name: Update README with branch name
         run: |
-          sed -i '//a * [`${{ github.ref_name }}`](https://github.com/lucaspaiva-lp/python-lab/tree/${{ github.ref_name }})' README.md
+          # AGORA COM O ALVO: sed -i '//a * [`${{ github.ref_name }}`](https://github.com/lucaspaiva-lp/python-lab/tree/${{ github.ref_name }})' README.md
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
