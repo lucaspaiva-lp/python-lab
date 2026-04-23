@@ -15,15 +15,16 @@ jobs:
 
       - name: Update README with branch name
         run: |
-          # AGORA COM O ALVO: sed -i '//a * [`${{ github.ref_name }}`](https://github.com/lucaspaiva-lp/python-lab/tree/${{ github.ref_name }})' README.md
+          # Procura a linha com '---' e insere o link antes dela
+          sed -i '/---/i * [`${{ github.ref_name }}`](https://github.com/lucaspaiva-lp/python-lab/tree/${{ github.ref_name }})' README.md
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           if [[ -n $(git status --porcelain README.md) ]]; then
             git add README.md
-            git commit -m "docs: auto-update README with branch ${{ github.ref_name }}"
+            git commit -m "docs: auto-update README com a branch ${{ github.ref_name }}"
             git push
           else
-            echo "No changes detected."
+            echo "Nenhuma alteração detectada."
           fi
